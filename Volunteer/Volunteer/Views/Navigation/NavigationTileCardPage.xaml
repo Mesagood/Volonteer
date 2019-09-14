@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage
+    x:Class="Volunteer.Views.Navigation.NavigationTileCardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:Volunteer.Controls"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:viewModel="clr-namespace:Volunteer.ViewModels.Navigation"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    BackgroundColor="{DynamicResource Gray-White}"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+
+    <CarouselPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </CarouselPage.Resources>
+    <ContentPage>
+        <ContentPage.Content>
+            <Grid>
+                <StackLayout>
+                    <control:TitleView Title="Программы"/>
+                    <buttons:SfButton
+                        Clicked="SfButton_Clicked"
+                        CornerRadius="20"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="Отправить" />
+                    <border:SfBorder
+                        BorderColor="Black"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="MessageEntry"
+                            Placeholder="Сообщение"
+                            PlaceholderColor="Black"
+                            Style="{StaticResource EntryStyle}"/>
+                    </border:SfBorder>
+                    <listView:SfListView
+                    x:Name="Stack"
+                        ItemTapped="Stack_ItemTapped"
+                Padding="{core:OnPlatformOrientationThickness Default='16,0,11,0',
+                                                              TabletPortrait='24,16,20,0',
+                                                              TabletLandscape='24,16,20,0',
+                                                              Desktop='24,24,20,0'}"
+                AutoFitMode="Height"
+                IsScrollBarVisible="false"
+                ItemSpacing="{core:OnPlatformOrientationThickness PhonePortrait='0,11,0,0',
+                                                                  PhoneLandscape='0,11,0,0',
+                                                                  Default='0,0,27,27'}"
+                SelectionBackgroundColor="Transparent">
+                    </listView:SfListView>
+                </StackLayout>
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage>
+        <ContentPage.Content>
+            <Grid>
+                <StackLayout>
+                    <control:TitleView Title="Фонды"/>
+                    <listView:SfListView
+                    x:Name="OrganizationList"
+                Padding="{core:OnPlatformOrientationThickness Default='16,0,11,0',
+                                                              TabletPortrait='24,16,20,0',
+                                                              TabletLandscape='24,16,20,0',
+                                                              Desktop='24,24,20,0'}"
+                AutoFitMode="Height"
+                IsScrollBarVisible="false"
+                ItemSpacing="{core:OnPlatformOrientationThickness PhonePortrait='0,11,0,0',
+                                                                  PhoneLandscape='0,11,0,0',
+                                                                  Default='0,0,27,27'}"
+                SelectionBackgroundColor="Transparent">
+                    </listView:SfListView>
+                </StackLayout>
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>
+</CarouselPage>
